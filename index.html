@@ -294,6 +294,7 @@ nav{
 .letter-panel textarea{width:100%;min-height:210px;background:transparent;border:1px solid var(--line);padding:18px;color:var(--ink);resize:none;font-family:"Cormorant Garamond",serif;font-size:1.1rem;line-height:1.8;font-style:italic;margin-bottom:16px}
 .letter-panel textarea:focus{outline:none;border-color:var(--accent)}
 .letter-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.letter-bottom.align-right{justify-content:flex-end}
 .check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.85rem}
 .sent{display:none;text-align:center;color:var(--accent);font-family:"Cormorant Garamond",serif;font-size:1.35rem;line-height:1.5;padding:34px}
 .public-letter{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);line-height:1.8}
@@ -331,6 +332,134 @@ footer{background:var(--dark);color:#bdb2a8;padding:42px 56px;display:flex;justi
 .song-links{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 30px}
 .lyrics{border-top:1px solid var(--line);padding-top:24px;max-height:320px;overflow:auto;white-space:pre-line;font-family:"Cormorant Garamond",serif;font-size:1.08rem;line-height:2;color:#4d433a;font-style:italic}
 
+
+/* PHOTOGRAPHY PLACEHOLDER */
+.photo-placeholder{
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  border-radius:34px;
+  padding:56px 28px;
+}
+.photo-placeholder-inner{max-width:560px}
+.photo-placeholder .moon{font-size:2rem;margin-top:22px}
+.photo-placeholder p{
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(1.7rem,3vw,3rem);
+  line-height:1.18;
+  color:var(--ink);
+}
+.photo-placeholder p span{
+  display:block;
+  color:var(--muted);
+  font-size:.72em;
+  margin:12px 0;
+}
+
+.section-header-small{
+  max-width:760px;
+  margin-bottom:32px;
+}
+
+/* FIXED SOUNDCLOUD PLAYER */
+.soundcloud-fixed{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:min(420px, calc(100vw - 36px));
+  z-index:999;
+  border:1px solid var(--line);
+  background:rgba(255,250,242,.94);
+  box-shadow:0 18px 46px rgba(30,26,23,.16);
+  border-radius:22px;
+  overflow:hidden;
+  backdrop-filter:blur(14px);
+}
+.soundcloud-fixed-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:12px 14px;
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  border-bottom:1px solid var(--line);
+}
+.soundcloud-fixed-header strong{color:var(--ink);font-weight:500}
+.soundcloud-fixed-header button{
+  background:transparent;
+  border:0;
+  color:var(--accent);
+  cursor:pointer;
+  font-size:1rem;
+  line-height:1;
+}
+.soundcloud-fixed iframe{display:block;width:100%;height:104px;border:0}
+body{padding-bottom:130px}
+@media(max-width:600px){.soundcloud-fixed{left:12px;right:12px;bottom:12px;width:auto}.soundcloud-fixed iframe{height:96px}body{padding-bottom:124px}}
+
+/* LETTERS EXTRA */
+.name-field{
+  width:100%;
+  border:1px solid var(--line);
+  background:transparent;
+  padding:14px 16px;
+  color:var(--ink);
+  margin-bottom:14px;
+}
+.name-field:focus{outline:none;border-color:var(--accent)}
+.found-letters{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:18px;
+}
+.found-letter{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:24px;
+  min-height:230px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 14px 34px rgba(30,26,23,.07);
+  transition:.25s;
+}
+.found-letter:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.found-letter-num{
+  font-size:.68rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+.found-letter-text{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.25rem;
+  line-height:1.7;
+  color:#4d433a;
+  font-style:italic;
+}
+.found-letter-empty{
+  grid-column:1 / -1;
+  min-height:190px;
+}
+.found-letter-reply{
+  margin-top:14px;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:.92rem;
+}
+@media(max-width:900px){
+    .photo-placeholder{min-height:320px}
+}
+
 @media(max-width:900px){
   nav{padding:0 20px}.nav-links{display:none}
   .hero{grid-template-columns:1fr;min-height:auto}.hero-visual{height:58vh;order:-1}.hero-copy{padding:42px 24px 50px}.hero h1{font-size:5.2rem}.hero-note{grid-template-columns:1fr}
@@ -347,6 +476,7 @@ footer{background:var(--dark);color:#bdb2a8;padding:42px 56px;display:flex;justi
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#galeria">Fotos</a></li>
     <li><a href="#cartas">Cartas</a></li>
+    <li><a href="#cartas-encontradas">Encontradas</a></li>
   </ul>
 </nav>
 
@@ -441,15 +571,15 @@ Hoje eu sigo escrevendo. Não porque tudo passou. Mas porque algumas coisas doem
 </section>
 
 <section id="galeria" class="section">
-  <div class="kicker">fotos</div>
-  <h2 class="section-title">Cenas que ficaram <em>guardadas</em>.</h2>
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="img/lua-mel-2.png" alt="Lua Mel"><span class="gallery-caption">Lua Mel</span></div>
-    <div class="gallery-item"><img src="img/lua-mel-1.jpg" alt="Lua Mel"><span class="gallery-caption">quarto</span></div>
-    <div class="gallery-item"><img src="img/lua-mel-quarto2.png" alt="Lua Mel"><span class="gallery-caption">abajur</span></div>
-    <div class="gallery-item"><img src="img/lua-mel-cafe.jpg" alt="Lua Mel"><span class="gallery-caption">café</span></div>
-    <div class="gallery-item"><img src="img/lua-mel-cozinha.png" alt="Lua Mel"><span class="gallery-caption">cozinha</span></div>
-    <div class="gallery-item"><img src="img/lua-mel-mapa.png" alt="Lua Mel"><span class="gallery-caption">mapa</span></div>
+  <div class="kicker">fotografias</div>
+  <h2 class="section-title">O lugar onde o mundo vai <em>mudar</em>.</h2>
+  <div class="photo-placeholder">
+    <div class="photo-placeholder-inner">
+      <p>Fotografias</p>
+      <p><span>Ainda não encontrei a câmera.</span></p>
+      <p>Mas quando encontrar,<br>algumas coisas vão mudar por aqui.</p>
+      <div class="moon">🌙</div>
+    </div>
   </div>
 </section>
 
@@ -457,24 +587,50 @@ Hoje eu sigo escrevendo. Não porque tudo passou. Mas porque algumas coisas doem
   <div>
     <div class="kicker">correspondências</div>
     <h2 class="section-title">Cartas para a <em>Lua</em>.</h2>
-    <p class="lead">Escreva algo que ficou preso. Pode ser uma saudade, um começo, uma frase que você nunca mandou. A Lua lê tudo.</p>
+    <p class="lead">Escreva uma carta para a Lua: uma saudade, um começo, uma frase que você nunca mandou ou algo que ficou preso. Você pode assinar com um nome/apelido ou deixar em branco. Algumas cartas serão escolhidas para aparecer em <strong>Cartas Encontradas</strong>, e as mais sensíveis podem receber uma resposta da Lua.</p>
   </div>
   <div class="letter-panel">
     <div class="carta-form">
+      <input class="name-field" type="text" placeholder="Seu nome ou apelido (opcional)">
       <textarea placeholder="O que você gostaria de dizer hoje?"></textarea>
-      <div class="letter-bottom">
-        <label class="check"><input type="checkbox" checked> enviar como anônimo</label>
+      <div class="letter-bottom align-right">
         <button class="btn fill" onclick="enviarCarta()">Enviar carta</button>
       </div>
     </div>
-    <div class="sent" id="cartaEnviada">🌙<br>A Lua recebeu sua carta.<br><span style="font-size:.95rem;color:var(--muted)">Obrigada por escrever.</span></div>
+    <div class="sent" id="cartaEnviada">🌙<br>A Lua recebeu sua carta.<br><span style="font-size:.95rem;color:var(--muted)">Algumas cartas podem aparecer por aqui, sem expor quem escreveu.</span></div>
   </div>
 </section>
 
-<div class="newsletter">
-  <div><h3>Receber cartas da Lua Mel</h3><p>Novos diários e músicas chegam primeiro por aqui.</p></div>
-  <div class="news-form"><input type="email" placeholder="seu@email.com"><button>inscrever</button></div>
-</div>
+<section id="cartas-encontradas" class="section">
+  <div class="section-header-small">
+    <div class="kicker">cartas encontradas</div>
+    <h2 class="section-title">Algumas palavras que <em>ficaram</em>.</h2>
+    <p class="lead">Um mural com cartas escolhidas. Algumas só ficam guardadas, outras recebem resposta da Lua.</p>
+  </div>
+  <div class="found-letters">
+    <div class="found-letter">
+      <div>
+        <div class="found-letter-num">em breve</div>
+        <div class="found-letter-text">As primeiras cartas escolhidas vão aparecer aqui.</div>
+      </div>
+      <div class="found-letter-reply">A ideia é guardar pequenos desabafos reais de quem também está tentando colocar alguma coisa em palavras.</div>
+    </div>
+    <div class="found-letter">
+      <div>
+        <div class="found-letter-num">como funciona</div>
+        <div class="found-letter-text">Você escreve. Pode assinar ou deixar anônimo. A Lua lê.</div>
+      </div>
+      <div class="found-letter-reply">Algumas cartas vão receber uma resposta curta, no tom dela — como se fossem fragmentos de um diário compartilhado.</div>
+    </div>
+    <div class="found-letter">
+      <div>
+        <div class="found-letter-num">por que existe</div>
+        <div class="found-letter-text">Porque certas coisas ficam mais leves quando encontram um lugar para existir.</div>
+      </div>
+      <div class="found-letter-reply">E talvez alguém precise ler exatamente aquilo que você teve coragem de escrever.</div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-logo">Lua Mel</div>
@@ -485,6 +641,14 @@ Hoje eu sigo escrevendo. Não porque tudo passou. Mas porque algumas coisas doem
     <a href="https://soundcloud.com/lua-mel-706424493" target="_blank">SoundCloud</a>
   </div>
 </footer>
+
+<div class="soundcloud-fixed" id="soundcloudFixed">
+  <div class="soundcloud-fixed-header">
+    <strong>Lua Mel no SoundCloud</strong>
+    <button onclick="document.getElementById('soundcloudFixed').style.display='none'" aria-label="fechar player">×</button>
+  </div>
+  <iframe title="SoundCloud Lua Mel" allow="autoplay" scrolling="no" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lua-mel-706424493&color=%23a66f3f&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+</div>
 
 <div class="modal-overlay" id="modalDiario" onclick="fecharModal('modalDiario')">
   <div class="modal" onclick="event.stopPropagation()">
